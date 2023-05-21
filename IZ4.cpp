@@ -64,13 +64,9 @@ string transition(Machine* ptr, string str, int cntStates, bool* isEnd)
         if (replacePos != string::npos)
             {
             if (ptr[i].replaceTo == "_")
-                {
                 str.erase(replacePos, ptr[i].whatToReplace.size());
-                }
             else
-                {
                 str.replace(replacePos, ptr[i].whatToReplace.size(), ptr[i].replaceTo);
-                }
 
             *isEnd = ptr[i].ifEnd;
 
@@ -101,12 +97,8 @@ string transition(Machine* ptr, string str, int cntStates, bool* isEnd)
 bool isValidInput(string input)
     {
     for (char c : input)
-        {
         if (!strchr("1*", c))
-            {
             return false;
-            }
-        }
     return true;
     }
 
@@ -129,15 +121,11 @@ int main()
             flag = true;
             bool* isEnd = &flag;
             while (*isEnd == 1)
-                {
                 str = transition(ptr, str, cntStates, isEnd);
-                }
             cout << "Результат: " << str << endl;
             }
         else
-            {
             cout << "Неверный ввод. Проверьте строку на корректность ввода. (Допустимые символы: 1, *)" << endl;
-            }
         str.clear();
         cout << "Хотите продолжить работу? (y/n)" << endl;
         cin >> choice;
