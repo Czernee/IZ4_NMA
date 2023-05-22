@@ -76,10 +76,11 @@ string transition(Machine* ptr, string str, int cntStates, bool* isEnd)
                 SetConsoleTextAttribute(hConsoleHandle, (k >= replacePos && k < replacePos + ptr[i].whatToReplace.size()) ? 4 : 15);
                 cout << s[k];
                 }
+            SetConsoleTextAttribute(hConsoleHandle, 15);
             cout << " -> ";
             for (int k = 0; k < str.size(); k++)
                 {
-                SetConsoleTextAttribute(hConsoleHandle, (k >= replacePos && k < replacePos + ptr[i].replaceTo.size()) ? 4 : 15);
+                //SetConsoleTextAttribute(hConsoleHandle, (k >= replacePos && k < replacePos + ptr[i].replaceTo.size()) ? 4 : 15);
                 cout << str[k];
                 }
             SetConsoleTextAttribute(hConsoleHandle, 15);
@@ -133,4 +134,3 @@ int main()
 
         return 0;
     }
-
